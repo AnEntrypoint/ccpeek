@@ -100,7 +100,7 @@ class JsonlWatcher extends EventEmitter {
     const isSubagent = /[\\/]subagents$/.test(dir);
     const projectDir = fp ? path.basename(isSubagent ? path.dirname(path.dirname(dir)) : path.dirname(fp)) : '';
     const parentSid = isSubagent ? path.basename(path.dirname(dir)) : null;
-    const cwd = e.cwd || (projectDir ? projectDir.replace(/^C--/, 'C:/').replace(/-/g, '/') : process.cwd());
+    const cwd = e.cwd || projectDir || '';
     const branch = e.gitBranch || '';
     const base = path.basename(cwd);
     const title = isSubagent ? `[agent] ${base}` : (branch ? `${branch} @ ${base}` : base);

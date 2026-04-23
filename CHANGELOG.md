@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Fix cwd reconstruction for project dirs containing dashes (rs-exec, cc-tail, gm-cc, etc). Previous `replace(/-/g, '/')` corrupted `C--dev-rs-exec` into `C:/dev/rs/exec`. Now falls back to the encoded project-dir basename when jsonl has no `cwd` field.
+
 ## 1.0.0 — 2026-04-11
 
 - Initial release: `cc-tail` npm package
